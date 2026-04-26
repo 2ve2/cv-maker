@@ -217,7 +217,7 @@ export function HomePage() {
             {/* Social links */}
             <div className="flex items-center gap-3">
               <a
-                href="https://github.com/lord2ve"
+                href="https://github.com/2ve2"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex h-9 w-9 items-center justify-center rounded-lg border border-border bg-card text-muted-foreground hover:text-foreground hover:border-primary/50 hover:bg-accent transition"
@@ -228,7 +228,7 @@ export function HomePage() {
                 </svg>
               </a>
               <a
-                href="https://linkedin.com/in/lord2ve"
+                href="https://www.linkedin.com/in/abdulrahman-matouk-00965b350"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex h-9 w-9 items-center justify-center rounded-lg border border-border bg-card text-muted-foreground hover:text-foreground hover:border-primary/50 hover:bg-accent transition"
