@@ -1,4 +1,4 @@
-export type TemplateId = 'modern' | 'dark' | 'classic' | 'minimal' | 'executive' | 'vibrant'
+export type TemplateId = 'modern' | 'dark' | 'classic' | 'minimal' | 'executive' | 'vibrant' | 'ats'
 
 export interface Personal {
   fullName: string

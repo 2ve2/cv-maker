@@ -6,6 +6,7 @@ import ExecutiveTemplate from './ExecutiveTemplate'
 import MinimalTemplate from './MinimalTemplate'
 import ModernTemplate from './ModernTemplate'
 import VibrantTemplate from './VibrantTemplate'
+import ATSTemplate from './ATSTemplate'
 
 export interface TemplateMeta {
   id: TemplateId
@@ -57,6 +58,13 @@ export const TEMPLATES: TemplateMeta[] = [
     description: 'Bold, colorful, playful',
     preview: 'linear-gradient(135deg,#FF5C5C,#FFB800,#00C896)',
     Component: VibrantTemplate,
+  },
+  {
+    id: 'ats',
+    name: 'ATS',
+    description: 'Applicant tracking system friendly, single-column',
+    preview: 'linear-gradient(135deg,#fff,#000)',
+    Component: ATSTemplate,
   },
 ]
 

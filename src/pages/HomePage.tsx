@@ -110,7 +110,7 @@ export function HomePage() {
           {[
             {
               icon: Layers,
-              title: '6 elegant templates',
+              title: '7 elegant templates',
               text: 'From minimalist serif to vibrant gradients — pick the look that fits you.',
             },
             {

@@ -1,21 +1,16 @@
 import axios from 'axios'
 
-const DEFAULT_BASE = 'http://localhost:3000'
-
-function getApiBase(): string {
-  if (typeof window === 'undefined') return DEFAULT_BASE
-  return window.localStorage.getItem('cv_api_base') || DEFAULT_BASE
-}
+export const API_BASES = [
+  'https://cv-makers-backend.bdalrhmnmtwq53.workers.dev',
+  'http://localhost:3000',
+  'http://localhost:8080',
+  'http://localhost:5173',
+  'http://localhost:4173',
+] as const
 
 export const apiClient = axios.create({
-  baseURL: getApiBase(),
+  baseURL: API_BASES[0],
   headers: {
     'Content-Type': 'application/json',
   },
-})
-
-// Update baseURL dynamically on each request (in case localStorage changed)
-apiClient.interceptors.request.use((config) => {
-  config.baseURL = getApiBase()
-  return config
 })

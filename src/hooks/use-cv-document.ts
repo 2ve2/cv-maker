@@ -9,8 +9,9 @@ export function useCVDocument() {
     try {
       const raw = window.localStorage.getItem(STORAGE_KEY);
       if (raw) return { ...emptyCV(), ...JSON.parse(raw) };
-    } catch {
-      return;
+    } catch (e) {
+      console.error('Failed to parse stored CV, starting fresh:', e)
+      return emptyCV();
     }
     return emptyCV();
   })

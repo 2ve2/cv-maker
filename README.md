@@ -1,12 +1,12 @@
 # CV Maker Frontend
 
-A modern, open-source CV/Resume builder frontend built with React and TypeScript. Create beautiful resumes with 6 professionally designed templates, a real-time editor, and instant PDF export.
+A modern, open-source CV/Resume builder frontend built with React and TypeScript. Create beautiful resumes with 7 professionally designed templates, a real-time editor, and instant PDF export.
 
 > **Backend Repository:** [cv-maker-backend](https://github.com/2ve2/cv-maker-backend)
 
 ## ✨ Features
 
-- 🎨 **6 CV Templates** — Modern, Dark, Classic, Minimal, Executive, and Vibrant
+- 🎨 **7 CV Templates** — Modern, Dark, Classic, Minimal, Executive, Vibrant, and ATS
 - ✏️ **Real-time Editor** — Live preview as you type
 - 📄 **PDF Export** — Instant download with one click
 - 🔗 **Public Links** — Share your CV with recruiters via a public URL
@@ -54,13 +54,9 @@ bun dev
 
 Opens on `http://localhost:5173`.
 
-### 4. Configure the API base URL (optional)
+### 4. API base URL
 
-By default, the frontend connects to `http://localhost:3000`. To change this, set the API base URL in your browser's localStorage:
-
-```js
-localStorage.setItem('cv_api_base', 'https://your-api-url.com')
-```
+By default the frontend connects to the deployed backend at `https://cv-makers-backend.bdalrhmnmtwq53.workers.dev` (hardcoded in `src/lib/apiClient.ts`). To run against a local backend instead, edit `API_BASES[0]` in that file.
 
 ## 📜 Available Scripts
 
@@ -81,6 +77,7 @@ localStorage.setItem('cv_api_base', 'https://your-api-url.com')
 | **Minimal** | Ultra-clean minimalist layout |
 | **Executive** | Corporate-style with strong typography |
 | **Vibrant** | Colorful and creative design |
+| **ATS** | Applicant-tracking-system friendly single-column |
 
 ## 📁 Project Structure
 
@@ -89,13 +86,14 @@ src/
 ├── components/
 │   ├── CVEditor.tsx           # Main CV editor form
 │   ├── SiteHeader.tsx         # Navigation header
-│   ├── templates/             # 6 CV templates
+│   ├── templates/             # 7 CV templates
 │   │   ├── ModernTemplate.tsx
 │   │   ├── DarkTemplate.tsx
 │   │   ├── ClassicTemplate.tsx
 │   │   ├── MinimalTemplate.tsx
 │   │   ├── ExecutiveTemplate.tsx
 │   │   ├── VibrantTemplate.tsx
+│   │   ├── ATSTemplate.tsx     # ATS-friendly single-column
 │   │   ├── registry.ts        # Template registry
 │   │   └── shared.tsx         # Shared template utilities
 │   └── ui/                    # Reusable UI components
