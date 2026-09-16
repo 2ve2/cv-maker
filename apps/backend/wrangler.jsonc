@@ -1,0 +1,6 @@
+{
+  "name": "cv-makers-backend",
+  "main": "src/index.ts",
+  "compatibility_date": "2026-04-26",
+  "compatibility_flags": ["nodejs_compat"]
+}
