@@ -1,17 +1,16 @@
 # CV Maker Frontend
 
-A modern, open-source CV/Resume builder frontend built with React and TypeScript. Create beautiful resumes with 7 professionally designed templates, a real-time editor, and instant PDF export.
+The React 19 SPA behind CV Maker — a real-time résumé editor with seven templates, live preview, one-click PDF export, and public share links.
 
-> **Backend Repository:** [cv-maker-backend](https://github.com/2ve2/cv-maker-backend)
+> This app lives in the CV Maker monorepo. The API now ships alongside it in [`../backend`](../backend) — see the [root README](../../README.md) for the full picture.
 
-## ✨ Features
+## ✨ Highlights
 
-- 🎨 **7 CV Templates** — Modern, Dark, Classic, Minimal, Executive, Vibrant, and ATS
-- ✏️ **Real-time Editor** — Live preview as you type
-- 📄 **PDF Export** — Instant download with one click
-- 🔗 **Public Links** — Share your CV with recruiters via a public URL
-- 📱 **Responsive** — Works on desktop, tablet, and mobile
-- 🆓 **Free Forever** — No sign-up required, no paywalls
+- 🎨 **7 CV templates** — switch styles without losing content
+- ✏️ **Real-time editor** — live preview as you type
+- 📄 **PDF export** — instant download via jsPDF
+- 🔗 **Public links** — share any saved CV with a URL
+- 📱 **Responsive** — desktop, tablet, and mobile
 
 ## 🛠️ Tech Stack
 
@@ -26,107 +25,68 @@ A modern, open-source CV/Resume builder frontend built with React and TypeScript
 | **React Router** | Client-side routing |
 | **jsPDF** | PDF generation |
 
-## 📋 Prerequisites
+## 🚀 Local Development
 
-- [Bun](https://bun.sh/) >= 1.0 (recommended) or Node.js >= 18
-- The [CV Maker Backend](https://github.com/2ve2/cv-maker-backend) running locally or deployed
-
-## 🚀 Getting Started
-
-### 1. Clone the repository
-
-```bash
-git clone https://github.com/2ve2/cv-maker-frontend.git
-cd cv-maker-frontend
-```
-
-### 2. Install dependencies
+From the monorepo root (installs every workspace):
 
 ```bash
 bun install
 ```
 
-### 3. Start the development server
+Then run this app — either scoped from the root:
 
 ```bash
+bun run dev:frontend
+```
+
+or from inside `apps/frontend`:
+
+```bash
+cd apps/frontend
 bun dev
 ```
 
-Opens on `http://localhost:5173`.
+The dev server starts at `http://localhost:5173`.
 
-### 4. API base URL
+**Pairing with the local backend:** by default `src/lib/apiClient.ts` calls the deployed API (`https://cv-makers-backend.bdalrhmnmtwq53.workers.dev`). To develop against the backend in `../backend`, set `API_BASES[0]` to `http://localhost:3000` and start it with `bun run dev:backend`.
 
-By default the frontend connects to the deployed backend at `https://cv-makers-backend.bdalrhmnmtwq53.workers.dev` (hardcoded in `src/lib/apiClient.ts`). To run against a local backend instead, edit `API_BASES[0]` in that file.
-
-## 📜 Available Scripts
+## 📜 Scripts
 
 | Command | Description |
 |---|---|
-| `bun dev` | Start development server with HMR |
-| `bun run build` | Type-check and build for production |
-| `bun run preview` | Preview the production build locally |
+| `bun dev` | Start dev server with HMR |
+| `bun run build` | Type-check (`tsc -b`) + production build |
 | `bun run lint` | Run ESLint |
+| `bun run preview` | Preview the production build locally |
 
 ## 🎨 Templates
 
 | Template | Style |
 |---|---|
-| **Modern** | Clean two-column layout with accent sidebar |
-| **Dark** | Dark theme with vibrant accent colors |
-| **Classic** | Traditional single-column professional design |
-| **Minimal** | Ultra-clean minimalist layout |
-| **Executive** | Corporate-style with strong typography |
-| **Vibrant** | Colorful and creative design |
-| **ATS** | Applicant-tracking-system friendly single-column |
+| **Modern** | Two-column layout with accent sidebar |
+| **Dark** | Dark theme, vibrant accents |
+| **Classic** | Traditional single-column |
+| **Minimal** | Ultra-clean minimalist |
+| **Executive** | Corporate, strong typography |
+| **Vibrant** | Colorful and creative |
+| **ATS** | Applicant-tracking-system friendly |
+
+All templates render from the same CV data model and are registered in `src/components/templates/registry.ts`.
 
 ## 📁 Project Structure
 
 ```
 src/
 ├── components/
-│   ├── CVEditor.tsx           # Main CV editor form
-│   ├── SiteHeader.tsx         # Navigation header
-│   ├── templates/             # 7 CV templates
-│   │   ├── ModernTemplate.tsx
-│   │   ├── DarkTemplate.tsx
-│   │   ├── ClassicTemplate.tsx
-│   │   ├── MinimalTemplate.tsx
-│   │   ├── ExecutiveTemplate.tsx
-│   │   ├── VibrantTemplate.tsx
-│   │   ├── ATSTemplate.tsx     # ATS-friendly single-column
-│   │   ├── registry.ts        # Template registry
-│   │   └── shared.tsx         # Shared template utilities
-│   └── ui/                    # Reusable UI components
-├── pages/
-│   ├── HomePage.tsx           # Landing page
-│   ├── EditorPage.tsx         # CV editor page
-│   ├── CVsPage.tsx            # Published CVs list
-│   ├── CVViewPage.tsx         # Single CV view/share
-│   └── NotFoundPage.tsx       # 404 page
-├── hooks/
-│   ├── use-cv-document.ts     # CV document state management
-│   └── use-mobile.tsx         # Mobile detection hook
-├── lib/
-│   ├── apiClient.ts           # Axios API client
-│   ├── projectsService.ts     # Project API service
-│   ├── pdf.ts                 # PDF export utility
-│   └── utils.ts               # General utilities
-├── types/
-│   ├── cv.ts                  # CV data types
-│   └── project.ts             # Project & API types
-├── App.tsx                    # Root component with routes
-└── main.tsx                   # Entry point
+│   ├── CVEditor.tsx        # Main CV editor form
+│   ├── SiteHeader.tsx      # Navigation header
+│   ├── templates/          # 7 CV templates + registry + shared utils
+│   └── ui/                 # Reusable UI components
+├── pages/                  # Home, Editor, CVs, CV view, 404
+├── hooks/                  # CV document state, mobile detection
+├── lib/                    # apiClient, projects service, PDF export, utils
+└── types/                  # CV & project types
 ```
-
-## 🔌 API Integration
-
-This frontend connects to the [CV Maker Backend](https://github.com/2ve2/cv-maker-backend) API:
-
-| Method | Endpoint | Description |
-|---|---|---|
-| `GET` | `/api/projects` | List all projects (paginated) |
-| `GET` | `/api/projects/:id` | Get a single project |
-| `POST` | `/api/projects` | Create a new project |
 
 ## 📄 License
 
