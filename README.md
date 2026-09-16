@@ -68,7 +68,7 @@ The frontend talks to the backend through a single axios client (`apps/frontend/
 
 ```bash
 # 1. Clone and install all workspace dependencies
-git clone https://github.com/2ve2/cv-maker-frontend.git cv-maker
+git clone https://github.com/2ve2/cv-maker.git cv-maker
 cd cv-maker
 bun install
 
@@ -106,7 +106,7 @@ The only environment variable the monorepo needs:
 
 </details>
 
-> By default the frontend calls the deployed API at `https://cv-makers-backend.bdalrhmnmtwq53.workers.dev`. To pair it with your local backend, point `API_BASES[0]` in `apps/frontend/src/lib/apiClient.ts` at `http://localhost:3000`.
+> By default the frontend calls the deployed API configured in `API_BASES` (`apps/frontend/src/lib/apiClient.ts`). To pair it with your local backend, point `API_BASES[0]` at `http://localhost:3000`.
 
 ## 📦 Deployment
 
@@ -141,7 +141,7 @@ wrangler secret put DATABASE_URL   # paste your Neon connection string
 wrangler deploy
 ```
 
-Configuration lives in `apps/backend/wrangler.jsonc` (Worker name `cv-makers-backend`, entry `src/index.ts`, `nodejs_compat` enabled). Note that CORS origins are allow-listed in `apps/backend/src/index.ts` — update that list if your Pages domain differs from `https://cv-maker-2cl.pages.dev`.
+Configuration lives in `apps/backend/wrangler.jsonc` (Worker name `cv-makers-backend`, entry `src/index.ts`, `nodejs_compat` enabled). Note that CORS origins are allow-listed in `apps/backend/src/index.ts` — update this list to match your Pages deployment domain.
 
 ## 📁 Project Structure
 

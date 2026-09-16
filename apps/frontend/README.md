@@ -48,7 +48,7 @@ bun dev
 
 The dev server starts at `http://localhost:5173`.
 
-**Pairing with the local backend:** by default `src/lib/apiClient.ts` calls the deployed API (`https://cv-makers-backend.bdalrhmnmtwq53.workers.dev`). To develop against the backend in `../backend`, set `API_BASES[0]` to `http://localhost:3000` and start it with `bun run dev:backend`.
+**Pairing with the local backend:** by default `src/lib/apiClient.ts` calls the deployed API configured in `API_BASES`. To develop against the backend in `../backend`, set `API_BASES[0]` to `http://localhost:3000` and start it with `bun run dev:backend`.
 
 ## 📜 Scripts
 

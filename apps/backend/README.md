@@ -137,7 +137,7 @@ wrangler secret put DATABASE_URL   # paste your Neon connection string (one-time
 wrangler deploy
 ```
 
-CORS origins are allow-listed in `src/index.ts` — currently `https://cv-maker-2cl.pages.dev` plus localhost variants. Update that list if your frontend's domain differs.
+CORS origins are allow-listed in `src/index.ts` — update this list to match your Pages deployment domain (localhost origins are already included for local development).
 
 ## 📁 Project Structure
 
