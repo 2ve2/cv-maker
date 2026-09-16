@@ -3,6 +3,7 @@ import { useInfiniteQuery } from '@tanstack/react-query'
 import { SiteHeader } from '@/components/SiteHeader'
 import { projectsService } from '@/lib/projectsService'
 import { FileText, Loader2, Search } from 'lucide-react'
+import { formatDistanceToNow } from 'date-fns'
 import { useState, useEffect, useRef, useCallback } from 'react'
 
 export function CVsPage() {
@@ -125,7 +126,7 @@ export function CVsPage() {
                     {p.title}
                   </p>
                   <p className="text-xs text-muted-foreground mt-0.5">
-                    {new Date(p.createdAt).toLocaleString()}
+                    {formatDistanceToNow(new Date(p.createdAt), { addSuffix: true })}
                   </p>
                 </div>
               </Link>
