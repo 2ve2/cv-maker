@@ -57,7 +57,7 @@ app.onError((error, c) => {
  * Middlewares
  */
 app.use('*', cors({
-  origin: ['https://cv-maker-2cl.pages.dev', 'http://localhost:3000', 'http://192.168.8.173:5174', 'http://192.168.8.173:5176', 'http://192.168.8.173:5173'],
+  origin: ['https://cv-maker-2cl.pages.dev', 'http://localhost:3000', 'http://localhost:5173', 'http://192.168.8.173:5174', 'http://192.168.8.173:5176', 'http://192.168.8.173:5173'],
   allowMethods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowHeaders: ['Content-Type'],
 }))

@@ -33,6 +33,7 @@
         "axios": "^1.15.1",
         "class-variance-authority": "^0.7.1",
         "clsx": "^2.1.1",
+        "date-fns": "^4.4.0",
         "html-to-image": "^1.11.13",
         "jspdf": "^4.2.1",
         "lucide-react": "^1.8.0",
@@ -599,6 +600,8 @@
     "cv-maker-frontend": ["cv-maker-frontend@workspace:apps/frontend"],
 
     "cv-makers-backend": ["cv-makers-backend@workspace:apps/backend"],
+
+    "date-fns": ["date-fns@4.4.0", "", {}, "sha512-+1UMbeh68lH1SegH83CGWwpb6OHHbpSgr3+s5Eww5M4CAgswBpoWS0AjTOfEJ33HiYKz1hdj/KTFprzXHmq/6w=="],
 
     "debounce-fn": ["debounce-fn@4.0.0", "", { "dependencies": { "mimic-fn": "^3.0.0" } }, "sha512-8pYCQiL9Xdcg0UPSD3d+0KMlOjp+KGU5EPwYddgzQ7DATsg4fuUDjQtsYLmWjnk2obnNHgV3vE2Y4jejSOJVBQ=="],
 
